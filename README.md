@@ -44,3 +44,10 @@ Para este projeto, decidimos usar o `Open Trivia DB`: https://opentdb.com/api_co
 
 ## 🖥️ É isso! Happy Coding!
 Para sanar qualquer dúvida, entre em contato com o nosso time!
+
+## Para rodar
+Para rodar o programa basta digitar dentro da pasta do arquivo no seu terminalos seguintes comandos:
+´´´
+npm install
+npm run dev
+´´´
