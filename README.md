@@ -46,7 +46,7 @@ Para este projeto, decidimos usar o `Open Trivia DB`: https://opentdb.com/api_co
 Para sanar qualquer dúvida, entre em contato com o nosso time!
 
 ## Para rodar
-Para rodar o programa basta digitar dentro da pasta do arquivo no seu terminalos seguintes comandos:
+Para rodar o programa basta entrar no diretório do desafio pelo terminal e digitar os seguintes comandos:
 ```
 npm install
 npm run dev
