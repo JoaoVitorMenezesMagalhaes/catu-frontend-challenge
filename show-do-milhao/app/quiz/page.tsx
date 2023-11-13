@@ -19,8 +19,9 @@ const QuizPage = () => {
     const [userChoice, setUserChoice] = useState<string | null>(null);
     const [shuffledAnswers, setShuffledAnswers] = useState<string[]>([]);
 
-    const playerName = localStorage.getItem('playerName') || '';
-    const existingDataString = localStorage.getItem('leaderboard') || '[]';
+    const playerName = typeof window !== 'undefined' ? localStorage.getItem('playerName') || '' : '';
+    const existingDataString =
+      typeof window !== 'undefined' ? localStorage.getItem('leaderboard') || '[]' : '[]';
     const existingData = JSON.parse(existingDataString);
   
     const difficultyScores: Record<string, number> = {
