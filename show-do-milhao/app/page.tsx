@@ -7,8 +7,11 @@ export default function Main() {
   return (
     <main className={styles.main}>
       <h1 className={styles.title}> SHOW DO MILHÃO </h1>
-      <Link href='/quiz'>
-      <button> Start Quiz </button>
+      <Link href='/name'>
+        <button> New Game </button>
+      </Link>
+      <Link href='/leaderboard'>
+        <button> Leaderboard </button>
       </Link>
     </main>
   )
