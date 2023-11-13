@@ -85,15 +85,14 @@ body {
   overflow-x: hidden;
 }
 
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: rgb(85, 85, 205);
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
 }
+
 
 a {
   color: inherit;

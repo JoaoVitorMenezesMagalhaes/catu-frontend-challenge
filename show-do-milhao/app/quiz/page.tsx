@@ -136,56 +136,97 @@ const QuizPage = () => {
         const question: Question = questions[currentQuestion];
       
         return (
-          <div>
-            <h1>Question {currentQuestion + 1}</h1>
-            <h2>Score: {score}</h2>
-            <h3>Difficulty: {question.difficulty}</h3>
-            <h3>{question.question}</h3>
-            <ul>
-              {shuffledAnswers.map((answer, index) => (
-                <li key={index}>
-                  <button
-                    onClick={() => handleAnswer(answer)}
-                    disabled={showNextButton}
-                    className={
-                      showNextButton && answer === question.correct_answer
-                        ? 'correct-answer'
-                        : showNextButton && answer === userChoice
-                        ? 'wrong-answer'
-                        : ''
-                    }
-                  >
-                    {answer}
-                  </button>
-                </li>
-              ))}
-            </ul>
-            {showNextButton && (
-              <button onClick={nextQuestion}>Next Question</button>
-            )}
-          </div>
-        );
+            <div style={{ textAlign: 'center', marginTop: '50px' }}>
+              <h1>Question {currentQuestion + 1}</h1>
+              <h2>Score: {score}</h2>
+              <h3>Difficulty: {question.difficulty}</h3>
+              <h3>{question.question}</h3>
+              <ul style={{ listStyle: 'none', padding: 0 }}>
+                {shuffledAnswers.map((answer, index) => (
+                  <li key={index} style={{ margin: '10px' }}>
+                    <button
+                      onClick={() => handleAnswer(answer)}
+                      disabled={showNextButton}
+                      className={
+                        showNextButton
+                          ? answer === question.correct_answer
+                            ? 'correct-answer'
+                            : answer === userChoice
+                            ? 'wrong-answer'
+                            : 'disabled-answer'
+                          : ''
+                      }
+                      style={{
+                        padding: '10px 20px',
+                        fontSize: '1rem',
+                        cursor: 'pointer',
+                        borderRadius: '5px',
+                        transition: 'background-color 0.3s, color 0.3s',
+                      }}
+                    >
+                      {answer}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              {showNextButton && (
+                <button
+                  onClick={nextQuestion}
+                  style={{
+                    padding: '10px 20px',
+                    fontSize: '1rem',
+                    backgroundColor: 'rgb(85, 85, 205)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.3s, color 0.3s',
+                    marginTop: '20px',
+                  }}
+                >
+                  Next Question
+                </button>
+              )}
+            </div>
+          );
+          
       };
   
     
-      if (quizCompleted) {
-        return (
-          <div>
-            <h1>Quiz Completed!</h1>
-            <p>Final Score: {score} points</p>
-            <Link href='/'>
-                <button>Back to Menu</button>
-            </Link>
-          </div>
-        );
-      }
-  
+    if (quizCompleted) {
     return (
-      <div>
-        <h1>Quiz Page</h1>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <h1 style={{ color: 'rgb(85, 85, 205)' }}>Quiz Completed!</h1>
+        <p style={{ fontSize: '1.2rem' }}>Final Score: {score} points</p>
+        <Link href='/'>
+            <button
+            style={{
+                padding: '10px 20px',
+                fontSize: '1rem',
+                backgroundColor: 'rgb(85, 85, 205)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                transition: 'background-color 0.3s, color 0.3s',
+            }}
+            >
+            Back to Menu
+            </button>
+        </Link>
+        </div>
+    );
+    }
+
+    return (
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
         {renderQuestion()}
-        {quizCompleted && <p>Final Score: {score} points</p>}
-      </div>
+        {quizCompleted && (
+        <p style={{ fontSize: '1.2rem', marginTop: '20px' }}>
+            Final Score: {score} points
+        </p>
+        )}
+    </div>
     );
   };
   
